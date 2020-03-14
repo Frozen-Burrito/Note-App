@@ -11,3 +11,68 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.App {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.row, .col {
+  height: 90vh;
+}
+
+.action-btn {
+  position: absolute;
+  top: 88%;
+  left: 1%;
+
+  width: 5rem;
+  height: 5rem;
+
+  border-radius: 50%;
+  border: none;
+
+  background-color: #ffa726;
+  color: #fff;
+  font-size: 2rem;
+
+  transition: .3s ease;
+}
+
+.action-btn:hover {
+  cursor: pointer;
+  background-color: #ffb74d;
+  font-size: 2.4rem;
+}
+
+.card-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-actions {
+  visibility: hidden;
+}
+
+.card-panel:hover{
+  cursor: pointer;
+}
+
+.card-panel:hover div{
+  visibility: visible;
+}
+
+.card-actions i {
+  color: #e0e0e0;
+  font-size: 1.6rem;
+  transition: color .3s ease;
+}
+
+.card-actions i:hover {
+  color: #bdbdbd;
+}
