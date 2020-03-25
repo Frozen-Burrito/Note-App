@@ -10,8 +10,7 @@ class NoteCard extends React.Component {
     }
 
     handleRemove(id) {
-        console.log(id);
-        alert('remove: ', id);
+        this.props.removeNote(id);
     }
 
     render() {
