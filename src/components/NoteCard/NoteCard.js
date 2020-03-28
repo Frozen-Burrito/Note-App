@@ -1,28 +1,48 @@
 import React from 'react';
 
-class NoteCard extends React.Component {
+import { connect } from 'react-redux';
+import { deleteNote, selectNote } from '../../Actions/NoteActions';
+
+const NoteCard = (props) => {
     
-    constructor(props) {
-        super(props);
+    const { note } = props;
 
-        this.content = props.content;
-        this.id = props.id;
+    // constructor(props) {
+    //     super(props);
+
+    //     this.content = props.content;
+    //     this.id = props.id;
+    // }
+
+    // handleRemove(id) {
+    //     this.props.removeNote(id);
+    // }
+
+    const handleSelect = () => {
+        props.selectNote(note.id);
     }
 
-    handleRemove(id) {
-        this.props.removeNote(id);
+    const handleDelete = () => {
+        // deleteNote(note.id);
     }
 
-    render() {
-        return (
-            <div className="card-panel grey lighten-5">
-                <li>{this.id} - {this.content}</li>
-                <div className="card-actions">
-                    <i className="fas fa-trash" onClick={() => {this.handleRemove(this.id)}}></i>
-                </div>
+    return (
+        <div className="card-panel grey lighten-5" onClick={handleSelect}>
+            <div>
+                <h5>{note.title}</h5>
+                <p>{note.content}</p>
             </div>
-        )
+            <div className="card-actions">
+                    <i className="fas fa-trash" onClick={handleDelete}></i>
+            </div>
+        </div>
+    )
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectNote: (id) => dispatch(selectNote(id))
     }
 }
 
-export default NoteCard;
+export default connect(null, mapDispatchToProps)(NoteCard);
